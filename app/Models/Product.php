@@ -19,4 +19,14 @@ class Product extends Model
         'price',
         'description'
     ];
+
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class);
+    }
+
+    public function images()
+    {
+        return $this->morphMany(Image::class, 'imageable');
+    }
 }
