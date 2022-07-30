@@ -15,4 +15,11 @@ class HomeController extends Controller
 
         return view('home', compact('products', 'categories'));
     }
+
+    public function productDetail($id)
+    {
+        $product = Product::findOrFail($id);
+        
+        return view('product-detail', compact('product'));
+    }
 }
