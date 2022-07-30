@@ -1,4 +1,9 @@
 @extends('layouts.app')
+
+@section('style')
+<link href="/lightbox/dist/css/lightbox.min.css" rel="stylesheet" />
+@endsection
+
 @section('content')
 <!-- Heading -->
 <div class="p-5 bg-light mb-4">
@@ -26,7 +31,7 @@
                 <div class="d-flex">
                     @if($product->images()->exists())
                     @foreach ($product->images as $image)
-                        <img src="{{ Storage::url($image->path) }}"  class="m-3" width="100" alt="Product Image">
+                    <a href="{{ Storage::url($image->path) }}" data-lightbox="image"><img src="{{ Storage::url($image->path) }}"  class="m-3" width="100" alt="Product Image"></a>
                     @endforeach
                     @endif
                 </div>
@@ -56,4 +61,8 @@
         </div>
     </div>
 </div>
+@section('script')
+<script src="/lightbox/dist/js/lightbox-plus-jquery.min.js"></script>
+@endsection
+
 @endsection
