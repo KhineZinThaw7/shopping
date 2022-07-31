@@ -21,3 +21,8 @@ Route::resource('categories', CategoryController::class);
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('products/{id}/detail', [HomeController::class, 'productDetail'])->name('products.detail');
+
+Route::get('/welcome/{lang}', function($lang) {
+    app()->setLocale($lang);
+    return view('welcome');
+});
